@@ -1,0 +1,11 @@
+Python Version: {}
+Discord.py Version: {}
+Bot Version: {}
+Uptime: {}
+~~Lines of Code: NA~~
+
+Server Count: {}
+Member Count: {}
+Commands Run: {}
+
+**Created by: Zevfer#0001**

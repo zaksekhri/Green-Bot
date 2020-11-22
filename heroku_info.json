@@ -1,0 +1,17 @@
+{
+"version" : "v0.0.4.6",
+"verion_url" : "",
+"autoUpdate" : false,
+"bot" : {
+	"defprefix": "e.",
+	"owners": [173547110388465664], 
+	"cogs": ["botManager", "server", "user", "invitemanager", "misc", "warframe", "clan"]
+	},
+"database" : {
+	"postgres_host": "127.0.0.1",
+	"postgres_database": "postgres",
+	"postgres_user": "postgres",
+	"postgres_password": "",
+	"postgres_port": 5432
+	}
+}

@@ -1,0 +1,8 @@
+discord.py[voice]
+asyncpg
+requests
+pytz
+psutil
+psycopg2
+python-dateutil
+git+https://github.com/Rapptz/discord-ext-menus

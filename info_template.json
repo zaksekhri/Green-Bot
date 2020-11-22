@@ -1,0 +1,18 @@
+{
+"version" : "",
+"verion_url" : "",
+"autoUpdate" : false,
+"bot" : {
+	"defprefix": "",
+	"token": "",
+	"owners": [], 
+	"cogs": []
+	},
+"database" : {
+	"postgres_host": "127.0.0.1",
+	"postgres_database": "postgres",
+	"postgres_user": "postgres",
+	"postgres_password": "",
+	"postgres_port": 5432,
+	}
+}

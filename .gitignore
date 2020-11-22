@@ -1,0 +1,22 @@
+# Dont want this leaking
+info.json
+database.ini
+
+# IDE/Text Editor Related Files
+*.sublime-project
+*.sublime-workspace
+
+# Run time folders/files
+logs/
+__pycache__/
+**/__pycache__/
+**/__init__.py
+
+# Ignored Folders
+Storage/
+
+# Misc
+**/test.py
+# src/extensions/ffmpeg/
+## PyInstaller ignore thingy
+bot.spec
