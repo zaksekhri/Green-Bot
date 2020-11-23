@@ -5,6 +5,7 @@ from ..functions.general import infoListToString, convert_with_fallback
 from ..functions.date import Date
 from ..functions.embeds import embedC
 from ..functions.guild import Guild
+from ..functions.menu import menuManager
 
 class InfoCog(commands.Cog):
     def __init__(self, bot):
@@ -106,10 +107,11 @@ class InfoCog(commands.Cog):
         embedC().builder(page_three, ctx.author, page_three_fields, thumbnail=guild.base_guild.icon_url_as(size=256))
         embedC().builder(page_four, ctx.author, page_four_fields, thumbnail=guild.base_guild.icon_url_as(size=256))
 
-        message = await ctx.send(embed=page_one)
-        await ctx.send(embed=page_two)
-        await ctx.send(embed=page_three)
-        await ctx.send(embed=page_four)
+        pages = [page_one, page_two, page_three, page_four]
+
+        m = menuManager(pages, "embed")
+        await m.start(ctx)
+        #message = await ctx.send(embed=page_one)
 
     @server.command()
     async def roles(self, ctx):
