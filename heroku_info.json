@@ -5,7 +5,7 @@
 "bot" : {
 	"defprefix": "e.",
 	"owners": [173547110388465664], 
-	"cogs": ["botManager", "server", "user", "invitemanager", "misc", "warframe", "clan"]
+	"cogs": ["botManager", "server", "user", "misc", "warframe"]
 	},
 "database" : {
 	"postgres_host": "127.0.0.1",

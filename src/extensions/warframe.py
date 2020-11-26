@@ -65,13 +65,31 @@ class WarframeCog(commands.Cog):
 
 		await ctx.send(embed=embed)
 
-	@commands.group(name="current", pass_context=True) # , invoke_without_command=False
-	async def wf_current(self, ctx):
-		if ctx.invoked_subcommand is None:
-			pass
+	@commands.command(name="free-glyphs")
+	async def free_glyphs(self, ctx):
+		await ctx.send("<https://levvvel.com/warframe-promo-codes/>")
 
-	@wf_current.command(brief="Returns the current arbi info.")
-	async def arbi(self, ctx):
+	@commands.command(name="lich-spawning")
+	async def lich_spawning(self, ctx):
+		await ctx.send("https://media.discordapp.net/attachments/700538916239048794/706874824131346462/lich_weapons.JPG")
+
+	@commands.command(name="amp-tiers")
+	async def amp_tiers(self, ctx):
+		await ctx.send("https://cdn.discordapp.com/attachments/723102443113807932/740248780842205224/AmpConvention.pnghttps://idalon.com/tools/analyzer")
+
+	@commands.command(name="propa-game")
+	async def propa_game(self, ctx):
+		await ctx.send("https://idalon.com/games/propa")
+
+	@commands.command(name="raplak-game")
+	async def raplak_game(self, ctx):
+		await ctx.send("https://idalon.com/games/raplak")
+
+	@commands.command(name="hunt-analyzer")
+	async def hunt_analyzer(self, ctx):
+		await ctx.send("https://idalon.com/tools/analyzer")
+	@commands.command(aliases=["arbi"],brief="Returns the current arbi info.")
+	async def arbitration(self, ctx):
 		info = await self.fetchWFAPI("arbi")
 
 		embed = embedC.quick_embed("Current Arbitration", None, 0x98FB98)
@@ -92,7 +110,7 @@ class WarframeCog(commands.Cog):
 
 		await ctx.send(content=None,embed=embed)
 
-	@wf_current.command(brief="Returns the current sortie info.")
+	@commands.command(brief="Returns the current sortie info.")
 	async def sortie(self, ctx):
 		info = await self.fetchWFAPI("sortie")
 
@@ -119,7 +137,7 @@ class WarframeCog(commands.Cog):
 
 		await ctx.send(content=None, embed=embed)
 
-	@wf_current.command(brief="Returns the current fissures.")
+	@commands.command(brief="Returns the current fissures.")
 	async def fissures(self, ctx, tier = None):
 		"""
 		Convert to use paginator
@@ -162,7 +180,7 @@ class WarframeCog(commands.Cog):
 		
 			await ctx.send(content=None, embed=embed)
 
-	@wf_current.command(brief="Incomplete | Returns the current invasions.")
+	@commands.command(brief="Incomplete | Returns the current invasions.")
 	async def invasions(self, ctx):
 		pass
 		#info = await self.fetchWFAPI("invasions")

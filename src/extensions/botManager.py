@@ -18,13 +18,15 @@ class botManager(commands.Cog):
 	def pred(m):
 		return m.author == message.author and m.channel == message.channel
 
+	"""
 	@commands.command()
 	async def getcode(ctx, command):
 		'''getting the code for command'''
 		a=inspect.getsource(bot.get_command(command).callback)
 		embed = discord.Embed(title=command, description=a)
 		await ctx.send(embed=embed)
-
+	"""
+	
 	@commands.is_owner()
 	@commands.command()
 	async def promoteadmin(self, ctx):
