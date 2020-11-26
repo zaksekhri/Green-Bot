@@ -7,9 +7,9 @@ from ..functions.embeds import embedC
 from ..functions.guild import Guild
 from ..functions.menu import menuManager
 
-class InfoCog(commands.Cog):
+class ServerCog(commands.Cog):
     def __init__(self, bot):
-        super(InfoCog, self).__init__()
+        super(ServerCog, self).__init__()
         self.bot = bot
 
     # Information and Stats
@@ -197,4 +197,4 @@ class InfoCog(commands.Cog):
             await ctx.send(embed=embed)
 
 def setup(bot):
-    bot.add_cog(InfoCog(bot))
+    bot.add_cog(ServerCog(bot))
