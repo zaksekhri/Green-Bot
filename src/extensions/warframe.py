@@ -164,6 +164,7 @@ class WarframeCog(commands.Cog):
 
 	@wf_current.command(brief="")
 	async def invasions(self, ctx):
+		pass
 		#info = await self.fetchWFAPI("invasions")
 
 def setup(bot):
