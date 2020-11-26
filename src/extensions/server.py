@@ -111,7 +111,9 @@ class InfoCog(commands.Cog):
 
         m = menuManager(pages, "embed")
         await m.start(ctx)
-        #message = await ctx.send(embed=page_one)
+        #message = await ctx.send(embed=page_two)
+        #message = await ctx.send(embed=page_three)
+        #message = await ctx.send(embed=page_four)
 
     @server.command()
     async def roles(self, ctx):

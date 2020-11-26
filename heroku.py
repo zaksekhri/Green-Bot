@@ -14,10 +14,15 @@ def credentials():
 def prefix(bot, message):
     bot.commands_run += 1
     return commands.when_mentioned_or(credentials()['bot']['defprefix'])(bot, message)
+    
+intents = discord.Intents.default()
+intents.members = True
+intents.presences = True
 
 bot = commands.Bot(
     command_prefix=prefix,
-    owner_id=credentials()['bot']['owners'][0]
+    owner_id=credentials()['bot']['owners'][0],
+    intents=intents
     )
 
 # Global Attributes

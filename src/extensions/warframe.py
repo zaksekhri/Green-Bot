@@ -162,7 +162,7 @@ class WarframeCog(commands.Cog):
 		
 			await ctx.send(content=None, embed=embed)
 
-	@wf_current.command(brief="")
+	@wf_current.command(brief="Incomplete | Returns the current invasions.")
 	async def invasions(self, ctx):
 		pass
 		#info = await self.fetchWFAPI("invasions")
