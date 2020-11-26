@@ -31,7 +31,7 @@ class menuManager(menus.Menu):
             return await channel.send(content=self.pages[self.current_page])
     
     @menus.button("⏮")
-    async def jump_to_first(self, payload) -> None:
+    async def jump_to_first(self, _) -> None:
         """
         Jumps to the first page.
         """
@@ -39,7 +39,7 @@ class menuManager(menus.Menu):
         await self.update()
 
     @menus.button("◀")
-    async def previous_page(self, payload) -> None:
+    async def previous_page(self, _) -> None:
         """
         Jumps back one page.
         """
@@ -48,14 +48,14 @@ class menuManager(menus.Menu):
             await self.update()
 
     @menus.button("❎")
-    async def stop_pages(self, payload) -> None:
+    async def stop_pages(self, _) -> None:
         """
         Closes the paginator
         """
         self.stop()
 
     @menus.button("▶")
-    async def next_page(self, payload) -> None:
+    async def next_page(self, _) -> None:
         """
         Jumps forward one page.
         """
@@ -64,13 +64,9 @@ class menuManager(menus.Menu):
             await self.update()
 
     @menus.button("⏭")
-    async def jump_to_last(self, payload) -> None:
+    async def jump_to_last(self, _) -> None:
         """
         Jumps to last page.
         """
         self.current_page = len(self.pages) - 1
         await self.update()
-
-# somewhere else:
-#pages = menus.MenuPages(source=MySource(range(1, 100)), clear_reactions_after=True)
-#await pages.start(ctx)
