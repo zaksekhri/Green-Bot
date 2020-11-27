@@ -17,15 +17,15 @@ class WarframeCog(commands.Cog):
 
 	base_api = "https://api.warframestat.us/pc"
 	api_extentions = {
-		"cetus" : "/cetusCycle",
-		"vallis" : "/vallisCycle",
-		"cambion" : "/cambionCycle",
-		"arbi" : "/arbitration",
-		"kuva" : "/kuva",
-		"sortie" : "/sortie",
-		"fissures" : "/fissures",
-		"invasions" : "/invasions",
-		"events" : "/events"
+		"cetus": "/cetusCycle",
+		"vallis": "/vallisCycle",
+		"cambion": "/cambionCycle",
+		"arbi": "/arbitration",
+		"kuva": "/kuva",
+		"sortie": "/sortie",
+		"fissures": "/fissures",
+		"invasions": "/invasions",
+		"events": "/events"
 	}
 	relic_tiers = ["Lith", "Meso", "Neo", "Axi", "Requiem"]
 
@@ -43,14 +43,14 @@ class WarframeCog(commands.Cog):
 		embed = embedC.quick_embed(f"Server Index", None, 0x98FB98)
 
 		fields = [
-			{"name" : "General Warframe Servers", "value" : "\
+			{"name": "General Warframe Servers", "value": "\
 			[Official Warframe Server](https://discord.gg/cV6KV3G)\
 			\n[Community Warframe Server](https://discord.gg/warframe)\
 			\n[Warframe Trading Hub](https://discord.gg/EwD6J37)\
 			\n[Warframe Blessings](https://discord.gg/3hHy5ygR4y)\
 			\n[Warframe Giveaways](https://discord.com/invite/d8ZYADy)\
 			\n[Endgame Community](https://discord.gg/2REYJrK)", "inline": True},
-			{"name" : "Topical Warframe Servers", "value" : "\
+			{"name": "Topical Warframe Servers", "value": "\
 			[Warframe University](https://discord.gg/ftfPKjP)\
 			\n[Warframe Speedruns](https://discord.gg/7wtcKvv)\
 			\n[Riven Info and Trading](https://discord.gg/S7aCrWx)\
@@ -100,8 +100,8 @@ class WarframeCog(commands.Cog):
 			{"name" : "Node", "value" : info["node"], "inline" : False}
 		]
 
-		if info["archwing"] == True:
-			fields.append({"name" : "Archwing", "value" : info["archwing"], "inline" : False})
+		if info["archwing"]:
+			fields.append({"name": "Archwing", "value": info["archwing"], "inline": False})
 
 		embedC().add_fields(embed, fields)
 
@@ -117,8 +117,8 @@ class WarframeCog(commands.Cog):
 		embed = embedC.quick_embed("Current Sortie", None, 0x98FB98)
 
 		fields = [
-			#{"name" : "Boss", "value" : f'{sortie_info["boss"]}\
-			#\nFaction - {sortie_info["faction"]}', "inline" : "False"},
+			# {"name" : "Boss", "value" : f'{sortie_info["boss"]}\
+			# \nFaction - {sortie_info["faction"]}', "inline" : "False"},
 			{"name" : f'Mission One - {info["variants"][0]["missionType"]}', "value" : f'Node: {info["variants"][0]["node"]}\
 			\n{info["variants"][0]["modifier"]}\
 			\n - {info["variants"][0]["modifierDescription"]}', "inline" : False},
@@ -183,7 +183,7 @@ class WarframeCog(commands.Cog):
 	@commands.command(brief="Incomplete | Returns the current invasions.")
 	async def invasions(self, ctx):
 		pass
-		#info = await self.fetchWFAPI("invasions")
+		# info = await self.fetchWFAPI("invasions")
 
 def setup(bot):
 	bot.add_cog(WarframeCog(bot))

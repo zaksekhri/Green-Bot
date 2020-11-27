@@ -10,7 +10,7 @@ class menuManager(menus.Menu):
         self.current_page = 0
         self.form = form
 
-    async def update(self) -> None:
+    async def change(self) -> None:
         """
         Updates the message with the selected page.
         """
@@ -36,7 +36,7 @@ class menuManager(menus.Menu):
         Jumps to the first page.
         """
         self.current_page = 0
-        await self.update()
+        await self.change()
 
     @menus.button("◀")
     async def previous_page(self, _) -> None:
@@ -45,7 +45,7 @@ class menuManager(menus.Menu):
         """
         if self.current_page > 0:
             self.current_page -= 1
-            await self.update()
+            await self.change()
 
     @menus.button("❎")
     async def stop_pages(self, _) -> None:
@@ -61,7 +61,7 @@ class menuManager(menus.Menu):
         """
         if self.current_page < len(self.pages) - 1:
             self.current_page += 1
-            await self.update()
+            await self.change()
 
     @menus.button("⏭")
     async def jump_to_last(self, _) -> None:
@@ -69,4 +69,4 @@ class menuManager(menus.Menu):
         Jumps to last page.
         """
         self.current_page = len(self.pages) - 1
-        await self.update()
+        await self.change()

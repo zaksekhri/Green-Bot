@@ -1,10 +1,9 @@
 # Import
 import discord
 from discord.ext import commands
-from ..functions.general import infoListToString, listToSpacedString, convert_with_fallback
 from ..functions.date import Date
 from ..functions.embeds import embedC
-from ..functions.guild import Guild
+from ..functions.general import listToSpacedString
 
 # Class
 class UserCog(commands.Cog):
