@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-import sys, os, traceback, json, logging, time, platform
+import sys, os, traceback, json, logging, time, platform, requests
 import datetime as dt
 from datetime import datetime
 from src.functions.embeds import embedC
@@ -55,7 +55,8 @@ async def info(ctx):
     hours, mins = divmod(mins, 60)
     uptime = f"{int(hours)} Hours {int(mins)} Minutes {int(secs)} Seconds"
 
-    description = open(os.getcwd()+'\\data\\botinfo.txt', "r").read()
+    # convert to cardinal
+    description = requests.get('https://raw.githubusercontent.com/zaksekhri/Green-Bot/master/data/botinfo.txt').text
     description = description.format(
         platform.python_version(), discord.__version__, bot.credentials['version'], uptime, len(ctx.bot.guilds), len(ctx.bot.users), bot.commands_run
     )
