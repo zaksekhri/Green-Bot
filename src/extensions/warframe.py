@@ -7,6 +7,7 @@ from discord.ext import commands
 from ..functions.embeds import embedC
 from ..functions.general import fetchAPI
 from ..functions.date import Date
+from ..functions.menu import menuManager
 
 # CLass
 class WarframeCog(commands.Cog):
@@ -88,6 +89,7 @@ class WarframeCog(commands.Cog):
 	@commands.command(name="hunt-analyzer")
 	async def hunt_analyzer(self, ctx):
 		await ctx.send("https://idalon.com/tools/analyzer")
+
 	@commands.command(aliases=["arbi"],brief="Returns the current arbi info.")
 	async def arbitration(self, ctx):
 		info = await self.fetchWFAPI("arbi")
@@ -163,7 +165,7 @@ class WarframeCog(commands.Cog):
 			else:
 				await ctx.send(f"**{tier}** is not a relic type!")
 		else:
-			embed = embedC.quick_embed("Current Fissures", None, 0x98FB98)
+			pages = []
 
 			lis = {"Lith" : "", "Meso" : "", "Neo" : "", "Axi" : "", "Requiem" : ""}
 
@@ -174,11 +176,16 @@ class WarframeCog(commands.Cog):
 			
 			for relic, value in lis.items():
 				if value != "":
-					fields.append({"name" : f'{relic} Fissures', "value" : value, "inline" : False})
+					embed = embedC.quick_embed(f"{relic} Fissures", None, 0x98FB98)
+					embed.description = value
 
-			embedC().builder(embed, ctx.author, fields)
-		
-			await ctx.send(content=None, embed=embed)
+					fields = []
+					embedC().builder(embed, ctx.author, fields)
+
+					pages.append(embed)
+
+			m = menuManager(pages, "embed")
+			await m.start(ctx)
 
 	@commands.command(brief="Incomplete | Returns the current invasions.")
 	async def invasions(self, ctx):

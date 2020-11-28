@@ -92,7 +92,7 @@ class UserCog(commands.Cog):
 
 		await ctx.send(content=None, embed=embed)
 
-	@user.command(brief="Changes the passed user's nickname on the server.")
+	@user.command(aliases=["nick"], brief="Changes the passed user's nickname on the server.")
 	async def nickname(self, ctx, *args):
 		"""
 		Usage: pre)user nickname <user> nickname
