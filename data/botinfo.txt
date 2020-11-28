@@ -9,3 +9,4 @@ Member Count: {}
 Commands Run: {}
 
 **Created by: Zevfer#0001**
+[Invite me to your server!](https://discord.com/oauth2/authorize?client_id=759948021282242601&scope=bot&permissions=2113744119)
