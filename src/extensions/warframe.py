@@ -4,7 +4,7 @@ from datetime import datetime
 import operator
 import discord
 from discord.ext import commands
-from ..functions.embeds import embedC
+from ..functions.embedC import embedC
 from ..functions.general import fetchAPI
 from ..functions.date import Date
 from ..functions.menu import menuManager

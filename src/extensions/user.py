@@ -2,7 +2,7 @@
 import discord
 from discord.ext import commands
 from ..functions.date import Date
-from ..functions.embeds import embedC
+from ..functions.embedC import embedC
 from ..functions.general import listToSpacedString
 
 # Class

@@ -170,4 +170,4 @@ class botManager(commands.Cog):
 		await ctx.send(await reloadCog(self.bot, message))
 
 def setup(bot):
-    bot.add_cog(botManager(bot))
+	bot.add_cog(botManager(bot))

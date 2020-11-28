@@ -3,7 +3,7 @@ import discord
 from discord.ext import commands
 from ..functions.general import listToSpacedString, convert_with_fallback
 from ..functions.date import Date
-from ..functions.embeds import embedC
+from ..functions.embedC import embedC
 from ..functions.guild import Guild
 
 # Class
