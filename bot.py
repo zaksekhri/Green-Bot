@@ -4,7 +4,7 @@ import discord
 from discord.ext import commands
 import datetime as dt
 from datetime import datetime
-from src.functions.embeds import embedC
+from src.functions.embedC import embedC
 
 def credentials():
     with open('info.json') as credentials:
