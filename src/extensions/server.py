@@ -32,8 +32,8 @@ class ServerCog(commands.Cog):
             {"name" : "Creation Date", "value" : guild.base_guild.created_at.date(), "inline": True},
             {"name" : "Member Count", "value" : guild.base_guild.member_count, "inline": True},
             {"name" : "Human & Bot Count", "value" : f"Humans: {guild.human_count} | Bots: {guild.bot_count}", "inline": True},
-            {"name" : "Text Channel Count", "value" : guild.text_channel_count, "inline": True},
-            {"name" : "Voice Channel Count", "value" : guild.voice_channel_count, "inline": True},
+            {"name" : "Roles Count", "value" : guild.role_count, "inline": True},
+            {"name" : "Channel Count", "value" : f"Text Channels: {guild.text_channel_count}\nVoice Channels: {guild.voice_channel_count}", "inline": True},
             {"name" : "Category Count", "value" : guild.category_count, "inline": True}
         ]
 
@@ -163,23 +163,30 @@ class ServerCog(commands.Cog):
 
         await ctx.send(content=None, embed=embed)
 
-    @commands.command()
-    async def createrole(self, ctx, rolename):
-        server = ctx.guild
-        try:
-            role = await server.create_role(name=rolename)
-        except Exception as e:
-            await ctx.send("I don't have the perms to make roles!<:cry:441942123047288832>")
-        else:
-            embed = discord.Embed(title=f"Role Successfully Created!", description=None, colour=0x98FB98)
-            embed.add_field(name="Role Name", value=f"{role}")
-            embed.add_field(name="Role ID", value=f"{role.id}")
-            embed.set_footer(text=f'Command called by {ctx.author.name}#{ctx.author.discriminator} at {dt.datetime.now().date()}', icon_url=ctx.author.avatar_url_as(size=256))
-            
-            await ctx.send(embed=embed)
+    @commands.group(brief="The command group for creating roles, channels, etc.")
+    async def create(self, ctx, pass_context=True):
+        if ctx.invoked_subcommand is None:
+            pass
 
-    @commands.command()
-    async def deleterole(self, ctx, rolename):
+    @create.command()
+    async def role(self, ctx, *, name):
+        name = infoListToString(name)
+        if len(name) <= 50:
+            try:
+                await ctx.guild.create_role(name=name)
+                await ctx.send(content=f"Role created with the name of {name}")
+            except Exception as e:
+                await ctx.send("I don't have the perms to make roles! <:cry:441942123047288832>")
+        else:
+            await ctx.send(content="Needs to be less than or equal to **50** characters long!")
+
+    @commands.group(brief="The command group for deleting roles, channels, etc.")
+    async def delete(self, ctx, pass_context=True):
+        if ctx.invoked_subcommand is None:
+            pass
+
+    @delete.command()
+    async def role(self, ctx, rolename):
         for role in ctx.guild.roles:
             if role.name == rolename:
                 therole = role
@@ -188,7 +195,7 @@ class ServerCog(commands.Cog):
         try:
             await therole.delete()
         except Exception as e:
-            await ctx.send("I don't have the perms to delete roles!<:cry:441942123047288832>")
+            await ctx.send("I don't have the perms to delete roles! <:cry:441942123047288832>")
         else:
             embed = discord.Embed(title=f"Role Successfully Deleted!", description=None, colour=0x98FB98)
             embed.add_field(name="Role Name", value=f"{rolename}")

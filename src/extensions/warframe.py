@@ -189,8 +189,31 @@ class WarframeCog(commands.Cog):
 
 	@commands.command(brief="Incomplete | Returns the current invasions.")
 	async def invasions(self, ctx):
-		pass
-		# info = await self.fetchWFAPI("invasions")
+		info = await self.fetchWFAPI("invasions")
+		pages = []
+
+		"""			
+		defender": "reward": {  "countedItems == count / type
+		activation": "2020-12-13T13:40:01.458Z
+		"attacker": "reward": {  "countedItems == count / type
+		"""
+
+		for invasion in info:
+			if invasion["completed"] is True:
+				embed = embedC.quick_embed(f'{invasion["desc"]} on {invasion["node"]}', None, 0x98FB98)
+
+				fields = [
+					{"name" : "Attacking Faction" , "value" : f'{invasion["attackingFaction"]}', "inline" : True},
+					{"name" : "Defending Faction" , "value" : f'{invasion["defendingFaction"]}', "inline" : True},
+					{"name" : "Active" , "value" : f'{invasion["completed"]}', "inline" : False},
+					{"name" : "Rewards" , "value" : f'NA', "inline" : True}
+				]
+				
+				embedC().builder(embed, ctx.author, fields)
+				pages.append(embed)
+
+		m = menuManager(pages, "embed")
+		await m.start(ctx)
 
 def setup(bot):
 	bot.add_cog(WarframeCog(bot))

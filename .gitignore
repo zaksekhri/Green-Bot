@@ -17,7 +17,10 @@ Storage/
 .idea/
 
 # Misc
+test.py
+temp.py
 **/test.py
+**/temp.py
 # src/extensions/ffmpeg/
 ## PyInstaller ignore thingy
 bot.spec
