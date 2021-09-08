@@ -15,7 +15,6 @@ def prefix(bot, message):
     bot.commands_run += 1
     return commands.when_mentioned_or(credentials()['bot']['defprefix'])(bot, message)
 
-
 intents = discord.Intents.default()
 intents.members = True
 intents.presences = True
