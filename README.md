@@ -2,6 +2,8 @@
 [![made-with-discord.py](https://img.shields.io/badge/Using-discord.py-ffde57.svg?longCache=true&style=flat-square&colorB=4584b6&logo=discord&logoColor=7289DA)](https://github.com/Rapptz/discord.py)
 [![version-info](https://img.shields.io/badge/dynamic/json?color=informational&label=Version&prefix=v&query=version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fzaksekhri%2FGreen-Bot%2Fmaster%2Fdata%2Fversion.json%3Ftoken%3DACN2JSMSC6APAZ4DTYLYKMK6GEWPK)](https://github.com/zaksekhri/Green-Bot/commits/master)
 
+This project is unmainted and will not be receiving future updates.
+
 # Green Bot
 This bot is green because it's new on the block and built specifically for forking and building upon. 
 
